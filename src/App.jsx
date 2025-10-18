@@ -1,13 +1,14 @@
+// src/App.jsx
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.jsx';
-import MeetingRoom from './pages/MeetingRoom.jsx';
+import { useRoutes } from 'react-router-dom';
+import Home from './pages/Home';
+import MeetingRoom from './pages/MeetingRoom';
 
 export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/room/:roomId" element={<MeetingRoom />} />
-    </Routes>
-  );
+  const routes = useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/room/:roomId', element: <MeetingRoom /> },
+  ]);
+
+  return routes;
 }
